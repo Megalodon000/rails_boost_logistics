@@ -1,0 +1,29 @@
+<div class="p-6 bg-gray-100">
+  <h2 class="text-3xl font-bold mb-6">Pending Registrations</h2>
+  
+  <table class="min-w-full bg-white border border-gray-200 rounded-lg shadow-md">
+    <thead class="bg-gray-800 text-white">
+      <tr>
+        <th class="py-3 px-6 border-b text-left" style="color: black !important;">Name</th>
+        <th class="py-3 px-6 border-b text-left" style="color: black !important;">Email</th>
+        <th class="py-3 px-6 border-b text-left" style="color: black !important;">Company Name</th>
+        <th class="py-3 px-6 border-b text-left" style="color: black !important;">Function</th>
+        <th class="py-3 px-6 border-b text-left" style="color: black !important;">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @pending_customers.each do |customer| %>
+        <tr class="border-b hover:bg-gray-50">
+          <td class="py-3 px-6"><%= customer.full_name %></td>
+          <td class="py-3 px-6"><%= customer.email %></td>
+          <td class="py-3 px-6"><%= customer.company_name %></td>
+          <td class="py-3 px-6"><%= customer.function %></td>
+          <td class="py-3 px-6 flex space-x-2">
+            <%= button_to 'Approve', admin_panel_approve_registration_path(customer.id), method: :patch, class: "bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-400", style: "background-color: green !important; color: white !important; padding: 10px !important;" %>
+            <%= button_to 'Reject', admin_panel_reject_registration_path(customer.id), method: :delete, class: "bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-400", style: "background-color: red !important; color: white !important; padding: 10px !important;" %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

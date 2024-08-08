@@ -1,0 +1,18 @@
+<div class="bg-white border border-gray-200 rounded-lg shadow-md p-4">
+  <h3 class="text-xl font-semibold mb-4">New Booking</h3>
+  <%= form_with url: customer_bookings_path, method: :post, local: true do |form| %>
+    <div class="mb-4">
+      <%= form.label :origin, class: "block text-sm font-medium text-gray-700" %>
+      <%= form.text_field :origin, class: "mt-1 block w-full border border-gray-300 rounded-md shadow-sm" %>
+    </div>
+    <div class="mb-4">
+      <%= form.label :destination, class: "block text-sm font-medium text-gray-700" %>
+      <%= form.text_field :destination, class: "mt-1 block w-full border border-gray-300 rounded-md shadow-sm" %>
+    </div>
+    <div class="mb-4">
+      <%= form.label :shipment_date, class: "block text-sm font-medium text-gray-700" %>
+      <%= form.date_field :shipment_date, class: "mt-1 block w-full border border-gray-300 rounded-md shadow-sm" %>
+    </div>
+    <%= form.submit "Submit Booking", class: "bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600" %>
+  <% end %>
+</div>

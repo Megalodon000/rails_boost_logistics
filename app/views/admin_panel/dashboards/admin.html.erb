@@ -1,0 +1,36 @@
+<div data-controller="dashboard" class="flex h-screen bg-gray-100">
+  <div class="flex justify-end">
+    <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: "bg-red-500 text-white px-4 py-2 rounded" %>
+  </div>
+  <!-- Sidebar -->
+  <div class="w-1/4 bg-blue-900 text-white p-6 space-y-4">
+    <h1 class="text-2xl font-semibold mb-4">Admin Dashboard</h1>
+    <ul class="space-y-2">
+      <li><a href="javascript:void(0)" data-action="click->dashboard#showSection" data-dashboard-section-param="blogs" class="block p-2 rounded hover:bg-blue-700">Blogs</a></li>
+      <li><a href="javascript:void(0)" data-action="click->dashboard#showSection" data-dashboard-section-param="accounts" class="block p-2 rounded hover:bg-blue-700">Accounts</a></li>
+      <li><a href="javascript:void(0)" data-action="click->dashboard#showSection" data-dashboard-section-param="bookings" class="block p-2 rounded hover:bg-blue-700">Bookings</a></li>
+      <li><a href="javascript:void(0)" data-action="click->dashboard#showSection" data-dashboard-section-param="tracking" class="block p-2 rounded hover:bg-blue-700">Tracking</a></li>
+    </ul>
+  </div>
+
+  <!-- Content Area -->
+  <div class="w-3/4 p-6 overflow-auto">
+    <!-- Section Containers -->
+    <div data-section="blogs" data-dashboard-target="content" class="space-y-6">
+      <!-- Blog Section Content -->
+      <%= render 'admin_panel/dashboards/blogs' %>
+    </div>
+    <div data-section="accounts" data-dashboard-target="content" class="hidden space-y-6">
+      <!-- Accounts Section Content -->
+      <%= render 'admin_panel/dashboards/accounts' %>
+    </div>
+    <div data-section="bookings" data-dashboard-target="content" class="hidden space-y-6">
+      <!-- Bookings Section Content -->
+      <%= render 'admin_panel/dashboards/bookings' %>
+    </div>
+    <div data-section="tracking" data-dashboard-target="content" class="hidden space-y-6">
+      <!-- Tracking Section Content -->
+      <%= render 'admin_panel/dashboards/trackings' %>
+    </div>
+  </div>
+</div>

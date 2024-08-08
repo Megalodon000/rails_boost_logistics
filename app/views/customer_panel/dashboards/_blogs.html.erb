@@ -1,0 +1,9 @@
+<div class="bg-white border border-gray-200 rounded-lg shadow-md p-4">
+  <% @blogs.each do |blog| %>
+    <div class="mb-4">
+      <h4 class="text-xl font-semibold"><%= blog.title %></h4>
+      <p><%= blog.body %></p>
+      <p class="text-gray-500 text-sm"><%= blog.published_at.strftime("%b %d, %Y") %></p>
+    </div>
+  <% end %>
+</div>

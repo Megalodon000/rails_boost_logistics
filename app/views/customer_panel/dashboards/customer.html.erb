@@ -1,0 +1,15 @@
+<div class="container mx-auto mt-8">
+  <div class="flex justify-end">
+    <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: "bg-red-500 text-white px-4 py-2 rounded" %>
+  </div>
+  <h1>Welcome, <%= current_customer.full_name %>!</h1>
+  <p>This is your customer dashboard.</p>
+  <div class="flex space-x-4">
+    <button data-action="click->customer--blogs#show" class="bg-gray-500 text-white px-4 py-2 rounded">Blogs</button>
+    <button data-action="click->customer--bookings#show" class="bg-gray-500 text-white px-4 py-2 rounded">Booking</button>
+    <button data-action="click->customer--trackings#show" class="bg-gray-500 text-white px-4 py-2 rounded">Tracking</button>
+  </div>
+  <div id="customer-content" class="mt-4">
+    <%= render 'blogs' %>
+  </div>
+</div>
